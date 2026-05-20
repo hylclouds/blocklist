@@ -3,6 +3,7 @@ assets.checkra.in
 palera.in
 api.palera.in
 palera1n.dev
+palera1n.com
 unc0ver.dev
 taurine.app
 odysseyra1n.com
@@ -29,6 +30,11 @@ docs.sidestore.io
 altstore.io
 faq.altstore.io
 cdn.altstore.io
+sideloadly.io
+cydiaimpactor.com
+libimobiledevice.org
+ellekit.space
+esign.yyyue.xyz
 ipasigner.com
 appdb.to
 appdb.app
@@ -39,3 +45,4 @@ iphonewiki.com
 theiphonewiki.com
 ios.cfw.guide
 cfw.guide
+3u.com
