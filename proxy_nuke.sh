@@ -185,7 +185,7 @@ else
   done
 fi
 
-# ═════════════════════════���════════════════════════════════
+# ══════════════════════════════════════════════════════════
 # SECTION 5: DETECT + REMOVE PROXY ENVIRONMENT VARIABLES
 # ══════════════════════════════════════════════════════════
 log_section "5. Detecting proxy environment variables"
