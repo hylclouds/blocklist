@@ -47,3 +47,4 @@ ios.cfw.guide
 cfw.guide
 3u.com
 example.com
+warez.com
