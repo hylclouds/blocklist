@@ -1,10 +1,3 @@
-! Title: Jailbreak Blocklist for AdGuard
-! Description: Blocks jailbreak tools, package managers, repos, and related domains
-! Homepage: https://github.com/hylclouds/blocklist
-! License: https://github.com/hylclouds/blocklist/blob/main/LICENSE
-! Last modified: 2026-05-27
-
-! Jailbreak Tools
 ||checkra.in^
 ||assets.checkra.in^
 ||palera.in^
@@ -15,8 +8,6 @@
 ||taurine.app^
 ||odysseyra1n.com^
 ||chimera.sh^
-
-! Package Managers & Repos
 ||electrarepo64.coolstar.org^
 ||sileo.app^
 ||getzbra.com^
@@ -27,70 +18,50 @@
 ||repo.chariz.com^
 ||havoc.app^
 ||repo.havoc.app^
-
-! Cydia & BigBoss
 ||apt.thebigboss.org^
 ||sparkdev.me^
 ||repo.packix.com^
-||thebigboss.org^
-||bigboss.host^
-
-! Cydia Developer Repos
 ||cokepokes.github.io^
 ||julioverne.github.io^
 ||akusio.github.io^
 ||opa334.github.io^
-||nepeta.me^
-||hbang.github.io^
-||nyansatan.github.io^
-||repo.xarold.com^
-
-! SideStore & AltStore
 ||sidestore.io^
 ||docs.sidestore.io^
 ||altstore.io^
 ||faq.altstore.io^
 ||cdn.altstore.io^
 ||sideloadly.io^
-
-! Signing & Spoofing Tools
 ||cydiaimpactor.com^
 ||libimobiledevice.org^
 ||ellekit.space^
 ||esign.yyyue.xyz^
 ||ipasigner.com^
-
-! Alternative App Stores
 ||appdb.to^
 ||appdb.app^
 ||ipalibrary.me^
-
-! iOS Firmware & Resources
 ||ipsw.me^
 ||api.ipsw.me^
 ||iphonewiki.com^
 ||theiphonewiki.com^
-
-! Guides & Documentation
 ||ios.cfw.guide^
 ||cfw.guide^
-
-! Legacy Cydia Repos
+||3u.com^
+||example.com^
+||xina.live^
+||txina.co^
 ||cydia.app^
 ||cydia.saurik.com^
 ||apt.saurik.com^
+||thebigboss.org^
 ||modmyi.com^
 ||zodttd.com^
 ||insanelyi.com^
 ||hackulous.org^
 ||cydia.zodttd.com^
-
-! Misc Repos & Tools
-||3u.com^
-||example.com^
-||xina.live^
-||txina.co^
+||bsn.21332.n3.nabble.com^
+||repo.xarold.com^
 ||repo.openemu.org^
+||nyansatan.github.io^
 ||edelta.sh^
 ||deltaup.org^
 ||antique.cydiarepo.ml^
@@ -101,7 +72,10 @@
 ||repo.cydia.app^
 ||modmyi.cydia.com^
 ||petrich.us^
+||bigboss.host^
 ||beta.repo.chariz.com^
+||nepeta.me^
+||hbang.github.io^
 ||repo.suturu.com^
 ||repo.chimera.sh^
 ||electra.web.unc0ver.dev^
