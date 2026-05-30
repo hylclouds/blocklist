@@ -86,3 +86,4 @@
 ||repo.superrepo.org^
 ||repo.nullpixel.uk^
 ||repo.ios.jjolano.me^
+||sync-v2.brave.com^
