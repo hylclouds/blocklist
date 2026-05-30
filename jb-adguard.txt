@@ -91,3 +91,5 @@
 ||ampaeservices.com^
 ||browser-intake-us5-datadoghq.com^
 ||hcaptcha.com^
+||logitech.com^
+||logi.com^
