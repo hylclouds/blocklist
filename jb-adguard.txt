@@ -89,3 +89,4 @@
 ||sync-v2.brave.com^
 ||clients3.google.com^
 ||ampaeservices.com^
+||browser-intake-us5-datadoghq.com^
