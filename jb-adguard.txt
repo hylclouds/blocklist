@@ -93,3 +93,6 @@
 ||hcaptcha.com^
 ||logitech.com^
 ||logi.com^
+||facebook.com^
+||snapchat.com^
+||instagram.com^
