@@ -98,3 +98,4 @@
 ||instagram.com^
 ||dopamine.app^
 ||procurs.us^
+||shazam.com^
