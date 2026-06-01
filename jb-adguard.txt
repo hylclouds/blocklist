@@ -99,3 +99,4 @@
 ||dopamine.app^
 ||procurs.us^
 ||shazam.com^
+||video.js^
