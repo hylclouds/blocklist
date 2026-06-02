@@ -101,3 +101,17 @@ procurs.us
 shazam.com
 video.js
 Kext.me
+archive.org
+github.com/acidanthera
+github.com/acidanthera/OpenCorePkg/releases
+github.com/RehabMan
+github.com/RehabMan/OS-X-USB-Inject-All
+archive.org/details/github.com-RehabMan-OS-X-USB-Inject-All
+archive.org/details/github.com-Sniki-OS-X-USB-Inject-All_-_2021-04-11_10-12-13
+github.com/corpnewt/Hackintosh-Guide
+github.com/corpnewt/Hackintosh-Guide/tree/master/prebuilt-kexts
+dortania.github.io
+github.com/dortania/build-repo
+github.com/VoodooI2C/VoodooI2C
+github.com/OpenIntelWireless
+github.com/Mieze
