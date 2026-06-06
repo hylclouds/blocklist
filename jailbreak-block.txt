@@ -115,3 +115,5 @@ github.com/dortania/build-repo
 github.com/VoodooI2C/VoodooI2C
 github.com/OpenIntelWireless
 github.com/Mieze
+configuration.apple.com
+configuration.icloud.com
