@@ -117,3 +117,4 @@
 ||github.com/Mieze^
 ||configuration.apple.com^
 ||configuration.icloud.com^
+||youtube.com^
