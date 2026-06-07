@@ -117,7 +117,6 @@
 ||github.com/Mieze^
 ||configuration.apple.com^
 ||configuration.icloud.com^
-||youtube.com^
 ||cloudflared.com^
 ||argotunnel.com^
 ||api.cloudflare.com^
