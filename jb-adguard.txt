@@ -91,11 +91,6 @@
 ||ampaeservices.com^
 ||browser-intake-us5-datadoghq.com^
 ||hcaptcha.com^
-||logitech.com^
-||logi.com^
-||facebook.com^
-||snapchat.com^
-||instagram.com^
 ||dopamine.app^
 ||procurs.us^
 ||shazam.com^
